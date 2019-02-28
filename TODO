@@ -1,0 +1,11 @@
+- Need to update to match new classes in ivy
+
+2019-02-28 15:59:06,083 [ 121226]  ERROR - rationStore.ComponentStoreImpl - Unable to serialize IvyIDEA.ProjectSettings state
+java.lang.NoClassDefFoundError: org/apache/ivy/core/resolve/ResolveOptions
+	at java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2701)
+	at java.lang.Class.privateGetPublicMethods(Class.java:2902)
+	at java.lang.Class.getMethods(Class.java:1615)
+	at com.intellij.util.xmlb.BeanBinding.collectPropertyAccessors(BeanBinding.java:327)
+
+- Need to set Idea compatible version -- currently compiling with 2016.1
