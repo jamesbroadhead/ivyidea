@@ -16,9 +16,14 @@
     </description>
     <change-notes><![CDATA[
         <p>
-            <strong>1.0.14</strong>
+          <strong>1.0.15</strong>
             <ul>
-                <li>When trying to resolve dependencies without an Ivy settings file, an IllegalArgumentException 
+                <li>Upgrade to ivy-2.5.0</li>
+            </ul>
+
+          <strong>1.0.14</strong>
+            <ul>
+                <li>When trying to resolve dependencies without an Ivy settings file, an IllegalArgumentException
 				    was thrown when clicking on the 'Open Project Settings' link</li>
             </ul>
             <strong>1.0.13</strong>

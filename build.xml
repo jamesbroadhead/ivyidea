@@ -16,14 +16,14 @@
 
 <project name="IvyIDEA" default="bundle" basedir=".">
 
-    <property name="ivyidea.version" value="1.0.14"/>
+    <property name="ivyidea.version" value="1.0.15"/>
 
     <property name="ivyidea.sourcedir" value="src/main/java"/>
     <property name="ivyidea.resourcedir" value="src/main/resources"/>
     <property name="ivyidea.builddir" value="build/classes"/>
-    
+
     <property name="ivyidea.libdir" value="lib"/>
-    
+
     <property environment="env" />
     <property name="idea.home" value="${env.IDEA_HOME}" />
 
@@ -35,7 +35,7 @@
 
     <taskdef name="javac2" classname="com.intellij.ant.Javac2">
         <classpath>
-            <pathelement location="${idea.home}/redist/javac2.jar" />
+            <pathelement location="${idea.home}/lib/javac2.jar" />
             <pathelement location="${idea.home}/lib/asm.jar" />
             <pathelement location="${idea.home}/lib/asm-all.jar" />
             <pathelement location="${idea.home}/lib/asm-commons.jar" />
@@ -44,7 +44,7 @@
             <pathelement location="${idea.home}/lib/jgoodies-forms.jar" />
         </classpath>
     </taskdef>
-    
+
     <target name="clean">
         <delete dir="build" />
     </target>
@@ -52,7 +52,7 @@
     <target name="jar">
         <mkdir dir="build" />
         <mkdir dir="${ivyidea.builddir}" />
-        
+
         <javac2 srcdir="${ivyidea.sourcedir}"
                 destdir="${ivyidea.builddir}"
                 source="1.6"
@@ -68,12 +68,12 @@
                 <pathelement location="${idea.home}/lib/openapi.jar" />
                 <pathelement location="${idea.home}/lib/util.jar" />
 				<pathelement location="${idea.home}/lib/idea.jar" />
-            
+
                 <!-- Ivy -->
-                <pathelement location="${ivyidea.libdir}/ivy-2.4.0.jar" />
+                <pathelement location="${ivyidea.libdir}/ivy-2.5.0-rc1.jar" />
             </classpath>
         </javac2>
-        
+
         <jar file="build/ivyidea-${ivyidea.version}.jar">
             <fileset dir="${ivyidea.builddir}">
                 <include name="**/*"/>
@@ -88,7 +88,7 @@
     <target name="bundle" depends="jar">
         <delete dir="build/dist/tmp"/>
         <mkdir dir="build/dist/tmp/IvyIDEA/lib"/>
-        <copy todir="build/dist/tmp/IvyIDEA/lib">            
+        <copy todir="build/dist/tmp/IvyIDEA/lib">
             <!-- Ivy -->
             <fileset file="${ivyidea.libdir}/ivy-2.4.0.jar"/>
 
